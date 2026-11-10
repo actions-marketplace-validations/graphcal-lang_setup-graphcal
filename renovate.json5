@@ -1,25 +1,11 @@
 {
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
-  extends: ["config:best-practices", "helpers:pinGitHubActionDigestsToSemver"],
-  lockFileMaintenance: {
-    enabled: true,
-  },
-  labels: ["dependencies"],
-  minimumReleaseAge: "7 days",
+  extends: ["github>graphcal-lang/renovate-config"],
   packageRules: [
-    {
-      matchUpdateTypes: ["lockFileMaintenance"],
-      minimumReleaseAge: null,
-    },
-    {
-      matchCategories: ["ci"],
-      addLabels: ["ci"],
-    },
     {
       matchManagers: ["pep621"],
       matchDepTypes: ["dependency-groups"],
       addLabels: ["dev dependencies"],
-      automerge: true,
     },
   ],
 }
